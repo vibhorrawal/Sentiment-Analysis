@@ -3,7 +3,7 @@ import argparse
 import GetOldTweets3 as got
 import spacy
 
-debug = True
+debug = False
 MAX_TWEETS = 20
 TOP_TWEETS = True
 nlp = spacy.load("en_core_web_sm")
@@ -56,13 +56,15 @@ def processTweets(tweets):
 
 parser = argparse.ArgumentParser(description='Query for twitter mining, can be "search" or @username or #hashtag')
 parser.add_argument('-q','--query', help='Add your query',required=False)
+parser.add_argument('-d','--debug', help='Debug',required=False)
 args = parser.parse_args()
 if __name__ == '__main__':
-	
 	if args.query is None:
-		text = input("Enter Querry: ")
+		text = input("Enter Query: ")
 	else:
 		text = args.query
+	if args.debug:
+		debug = True
 
 	tweets = findTweets(text)
 	predictions = predict(tweets)
