@@ -59,13 +59,11 @@ parser.add_argument('-q','--query', help='Add your query',required=False)
 args = parser.parse_args()
 if __name__ == '__main__':
 	
-	if args.name is None:
+	if args.query is None:
 		text = input("Enter Querry: ")
 	else:
-		text = args.name
+		text = args.query
 
-	print('Done',text)
-	exit(1)
 	tweets = findTweets(text)
 	predictions = predict(tweets)
 	print(predictions)
