@@ -3,6 +3,7 @@ import sys, re
 import argparse
 import GetOldTweets3 as got
 import spacy
+from predictions import predict
 
 debug = False
 MAX_TWEETS = 20
@@ -46,19 +47,19 @@ def processTweets(tweets):
 		doc = nlp(words)
 		for token in doc:
 			t = re.sub('[\s]+|(-PRON-)','',token.lemma_)
-			if t not in stopWords and len(t) > 2:
+			if t not in stopWords and len(t) >= 2:
 				corp.append(t)		
 		corpus.append(corp)
 	
 	if debug:
 		print(corpus[-5:-1])
-
 	return corpus
 
 parser = argparse.ArgumentParser(description='Query for twitter mining, can be "search" or @username or #hashtag')
 parser.add_argument('-q','--query', help='Add your query',required=False)
 parser.add_argument('-d','--debug', help='Debug',required=False)
 args = parser.parse_args()
+
 if __name__ == '__main__':
 	if args.query is None:
 		text = input("Enter Query: ")
@@ -68,5 +69,5 @@ if __name__ == '__main__':
 		debug = True
 
 	tweets = findTweets(text)
-	predictions = predict(tweets)
+	predictions = predict(tweets,debug=debug)
 	print(predictions)
