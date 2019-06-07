@@ -1,4 +1,4 @@
-#!/home/vibhor/Downloads/projects/Sentiment Analysis/env/bin/python3
+#!/home/vibhor/Downloads/projects/Sentiment-Analysis/env/bin/python3
 # -*- coding: utf-8 -*-
 """To use this script you can pass the following attributes:
        querysearch: a query text to be matched

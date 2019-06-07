@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/vibhor/Downloads/projects/Sentiment Analysis/env"
+$VIRTUAL_ENV = r"/home/vibhor/Downloads/projects/Sentiment-Analysis/env"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

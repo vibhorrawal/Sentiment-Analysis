@@ -1,4 +1,4 @@
-#!/home/vibhor/Downloads/projects/Sentiment Analysis/env/bin/python
+#!/home/vibhor/Downloads/projects/Sentiment-Analysis/env/bin/python
 
 import sys
 import getopt

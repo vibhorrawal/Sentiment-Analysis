@@ -1,14 +1,12 @@
-import sys,re
+import sys, re
+import argparse
 import GetOldTweets3 as got
 import spacy
-from spacy.lemmatizer import Lemmatizer
-from spacy.lang.en import LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES
 
 debug = True
 MAX_TWEETS = 20
 TOP_TWEETS = True
 nlp = spacy.load("en_core_web_sm")
-lemmatizer = Lemmatizer(LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES)
 
 assert sys.version_info[0] >= 3, 'Please use Python 3.x'
 
@@ -54,13 +52,20 @@ def processTweets(tweets):
 	if debug:
 		print(corpus[-5:-1])
 
-	return corpus		
+	return corpus
 
+parser = argparse.ArgumentParser(description='Query for twitter mining, can be "search" or @username or #hashtag')
+parser.add_argument('-q','--query', help='Add your query',required=False)
+args = parser.parse_args()
 if __name__ == '__main__':
 	
-	if debug:
-		text = 'zine'
+	if args.name is None:
+		text = input("Enter Querry: ")
 	else:
-		text = input()
+		text = args.name
+
+	print('Done',text)
+	exit(1)
 	tweets = findTweets(text)
-	print(tweets[0])
+	predictions = predict(tweets)
+	print(predictions)
