@@ -1,9 +1,9 @@
 # Sentiment-Analysis
 Run *main.py* to run your query.
 You first have to use the virtual environment *env*.
-<br><br>
+<br>
 Run:
-`source env/bin/activate`
+`source env/bin/activate` in root directory
 <br>
 or
 you can install requirements by running
@@ -11,6 +11,6 @@ you can install requirements by running
 `pip install -r requirements.txt`
 <br>
 For checking sentiments pertaining to a given topic or a hashtag or even a user on **Twitter**, you can use any query. eg- *#Avengers*, *@twitter* or even *'Europe elections'*
-To run *<your-query>* :
-<br>	
-`python main.py -q '<your-query>'
+<br>	To run *<your-query>* :
+
+`python main.py -q "<your-query>"`
