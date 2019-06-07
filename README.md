@@ -1,9 +1,9 @@
 # Sentiment-Analysis
-Run *main.py* to run your query.
+Use *main.py* to run your query.
 You first have to use the virtual environment *env*.
 <br>
 Run:
-`source env/bin/activate` in root directory
+`source env/bin/activate` in root directory.
 <br>
 or
 you can install requirements by running
