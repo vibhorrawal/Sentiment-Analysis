@@ -1,10 +1,10 @@
 # Sentiment-Analysis
 Use *main.py* to run your query.
 # Setup
-You can create Virtual Environment using <br>
+You can create Virtual Environment using: <br>
 `python3 -m venv my_env` <br>
 `source my_env/bin/activate`
-<br>
+<br><br>
 Install requirements by running
 <br>
 `pip install -r requirements.txt`

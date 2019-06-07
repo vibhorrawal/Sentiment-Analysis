@@ -1,3 +1,4 @@
+# This is the main file which does all the preproccessing on Twitter data and prints predictions
 import sys, re
 import argparse
 import GetOldTweets3 as got
