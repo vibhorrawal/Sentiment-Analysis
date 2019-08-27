@@ -42,7 +42,7 @@ def trainLSTM(x,y,loadweights=True):
 	model.save_weights("weights/lstm.h5")
 	# print("Saved model to disk")
 #-------------------------------------------------------------------------------
-def trainBernaoulliNB(X,y,loadweights):
+def trainBernoulliNB(X,y,loadweights):
 	print("Training BernoulliNB...")
 	BN_classifier = BernoulliNB()
 	if loadweights:
@@ -140,20 +140,20 @@ if __name__ == '__main__':
 	y = []
 	for value in lines:
 	    temp = value.split('\t')
-	    x.append(temp[0])
+	    x.append(temp[0].lower())
 	    temp[1].replace('\n','')
 	    y.append(int(temp[1]))
 
 	with open("training-data/positive.txt" ,encoding='latin-1') as f1:
 	    temp = f1.readlines()
 	    for line in temp:
-	        x.append(line[:-4])
+	        x.append(line[:-4].lower())
 	        y.append(1)
 
 	with open("training-data/negative.txt" ,encoding='latin-1') as f1:
 	    temp = f1.readlines()
 	    for line in temp:
-	        x.append(line[:-4])
+	        x.append(line[:-4].lower())
 	        y.append(0)
 
 	print('x',x[:10])
@@ -174,7 +174,7 @@ if __name__ == '__main__':
 	# training models here
 	trainLSTM(X, y,	loadweights)
 	trainMultinomialNB(X, y, loadweights)
-	trainBernaoulliNB(X,y,loadweights)
+	trainBernoulliNB(X,y,loadweights)
 	trainGaussianNB(X, y, loadweights)
 	trainLogisticRegression(X, y, loadweights)
 	trainSVC(X,y,loadweights)
