@@ -7,13 +7,28 @@ You can create Virtual Environment using: <br>
 <br><br>
 Install requirements by running
 <br>
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 <br>
-`python -m spacy download en_core_web_sm`
+`python3 -m spacy download en_core_web_sm`
 <br>
 # Running main.py
 For checking sentiments pertaining to a given topic or a hashtag or even a user on **Twitter**, <br>
  you can use any query. eg- *#Avengers*, *@twitter* or even *'Europe elections'*
 <br><br>	To run *\<your-query\>* :<br>
-`python main.py -q "<your-query>"` or
-`python main.py -query "<your-query>"`
+`python3 main.py -q "<your-query>"` or
+`python3 main.py -query "<your-query>"`
+<br><br>
+# Further Description
+Following models, currently, are used and their votes are averaged to produce final sentiment score with confidence(out of 1) in the form of [Negative, Postive] :
+- LSTM (RNN architecture)
+- Naive Bayes classifier for Multinomial model
+- Naive Bayes classifier for multivariate Bernoulli model
+- Gaussian Naive Bayes
+- Logistic Regression
+- C-Support Vector Classification
+- Linear Support Vector Classification
+- Nu-Support Vector Classification.
+<br>
+After finding some free corpuses(corpi?) online, the models are trained. If you want to train yourself, there are some corpi in [training-data](training-data) , you can add your files in that folder and change [train.py](train.py) according to your files and train for weights which are stored in [weights](weights).
+<br><br>
+After some testing I found LSTM, SVC and NuSVC to perform much better than others as is also visible by the size of their weights, and therefore if no flag to include all models is passed, by default those are used for predictions. If you want to include all, run with --all flag, as in `python3 main.py --all`. I have still included them, if you find more data, training with it will improve the model, also if you fine tune hyperparameters that will help too, kindly let me know also.
