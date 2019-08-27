@@ -63,7 +63,7 @@ def processTweets(tweets):
 parser = argparse.ArgumentParser(description='Query for twitter mining, can be "search" or @username or #hashtag')
 parser.add_argument('-q','--query', help='Add your query',required=False)
 parser.add_argument('-d','--debug', help='Debug',required=False)
-parser.add_argument('--model', help='Model Selection',required=False)
+parser.add_argument('--all', help='Model Selection',required=False, action='store_true')
 args = parser.parse_args()
 
 if __name__ == '__main__':
@@ -73,10 +73,10 @@ if __name__ == '__main__':
 		text = args.query
 	if args.debug:
 		debug = True
-	if args.model is None:
-		accuracy = True
-	else:
+	if args.all:
 		accuracy = False
+	else:
+		accuracy = True
 
 	tweets = findTweets(text)
 	predictions = predict(tweets[0],debug=debug,accuracy=accuracy)
