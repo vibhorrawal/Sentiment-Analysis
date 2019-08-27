@@ -148,4 +148,4 @@ def model_NuSVC(X,debug=False):
 #-------------------------------------------------------------------------------
 
 if __name__ == '__main__':
-	print(predict(['I love you', 'What a waste of money and time!.','I hate you', 'shit', 'I am very angry', 'I am very happy'],accuracy=True))
+	print(predict(['I love you', 'What a waste of money and time!.','I hate you'],accuracy=True))
