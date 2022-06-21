@@ -1,5 +1,5 @@
 GetOldTweets3==0.0.10
-numpy==1.16.4
+numpy==1.22.0
 spacy==2.1.4
 Keras==2.2.5
 tensorflow==1.14.0
